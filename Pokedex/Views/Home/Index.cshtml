@@ -2,6 +2,10 @@
 @{
     ViewData["Title"] = "Home";
     var tipos = (List<Tipo>)ViewData["Tipos"];
+    string Cor(string nome)
+    {
+        return tipos.Where(t => t.Nome == nome).Select(t => t.Cor).FirstOrDefault();
+    }    
 }
 
 <section class="pt-5 pb-3 text-center container">
@@ -12,6 +16,7 @@
                 <button id="btn-all" class="btn btn-md my-2 text-white bg-secondary btn-filter">
                     VerTodos
                 </button>
+
                 @foreach (var tipo in tipos)
                 {
                     <button id="btn-@tipo.Nome" class="btn btn-sm my-2 text-white btn-filter"
@@ -34,14 +39,14 @@
                 <!-- Card Pokemon - Inicio -->
                 <div class="col">
                     <div class="card shadow-sm cursor-pointer planta venenoso" onclick="GetInfo(001)">
-                        <img src="@pokemon.Imagem" class="card-img-top" width="100%" height="300" alt="Bulbasaur" />
+                        <img src="@pokemon.Imagem" class="card-img-top" width="100%" height="300" alt="@pokemon.Nome" />
                         <div class="card-body">
                             <p class="card-text mb-0">@pokemon.Numero.ToString("000")</p>
                             <h3 class="card-title">@pokemon.Nome</h3>
                             <div class="btn-group">
                                 @foreach (var tipo in pokemon.Tipo)
                                 {
-                                <a href="#" class="btn my-2 text-white" style="background-color:#7c5">@tipo</a>
+                                <a href="#" class="btn my-2 text-white" style="background-color:@Cor(tipo)">@tipo</a>
                                 }
                             </div>
                         </div>
