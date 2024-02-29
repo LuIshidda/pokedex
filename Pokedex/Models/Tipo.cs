@@ -2,6 +2,6 @@ namespace Pokedex.Models;
 
 public class Tipo
 {
-    public string nome { get; set; }
-    public string cor { get; set; }
+    public string Nome { get; set; }
+    public string Cor { get; set; }
 }

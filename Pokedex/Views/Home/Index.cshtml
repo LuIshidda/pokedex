@@ -14,10 +14,10 @@
                 </button>
                 @foreach (var tipo in tipos)
                 {
-                <button id="btn-aço" class="btn btn-sm my-2 text-white btn-filter"
-                    style="background-color:@tipo.cor">
-                    @tipo.nome
-                </button>
+                    <button id="btn-@tipo.Nome" class="btn btn-sm my-2 text-white btn-filter"
+                        style="background-color:@tipo.Cor">
+                        @tipo.Nome
+                    </button>
                 }
             </div>
         </div>
